@@ -1,0 +1,22 @@
+{
+    "name": "wde/mvc",
+    "description": "Estudando php utilizando mvc",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Filipe Oliveira",
+            "email": "filipe1000oliveira@gmail.com",
+            "role": "Developer",
+            "homepage": "https://php-mvc.com.br"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "require": {
+        "twbs/bootstrap": "5.0.1"
+    }
+}
