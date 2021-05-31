@@ -32,9 +32,9 @@ class Router
     /**
      * Instancia de Request
      *
-     * @var Request0
+     * @var Request
      */
-    private $requet;
+    private $request;
 
     /**
      * Método responsável por iniciar a classe
@@ -43,7 +43,7 @@ class Router
      */
     public function __construct($url)
     {
-        $this->requet = new Request();
+        $this->request = new Request($this);
         $this->url = $url;
         $this->setPrefix();
     }
@@ -149,7 +149,7 @@ class Router
     public function getUri()
     {
         /** URI da request */
-        $uri = $this->requet->getUri();
+        $uri = $this->request->getUri();
 
         /** Fatia a URI com o prefixo */
         $xUri = strlen($this->prefix) ? explode($this->prefix, $uri) : [$uri];
@@ -169,7 +169,7 @@ class Router
         $uri = $this->getUri();
 
         /** Method */
-        $httpMethod = $this->requet->getHttpMethod();
+        $httpMethod = $this->request->getHttpMethod();
 
         /** Valida as rotas */
         foreach ($this->routes as $petternRoute => $methods) {
@@ -182,7 +182,7 @@ class Router
                     /** Variáveis processadas */
                     $keys = $methods[$httpMethod]['variables'];
                     $methods[$httpMethod]['variables'] = array_combine($keys, $matches);
-                    $methods[$httpMethod]['variables']['request'] = $this->requet;
+                    $methods[$httpMethod]['variables']['request'] = $this->request;
 
                     /** Retorno dos parâmetros da rota */
                     return $methods[$httpMethod];

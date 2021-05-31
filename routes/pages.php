@@ -19,9 +19,15 @@ $router->get('/sobre', [
 ]);
 
 
-/** rota Dinâmica */
-$router->get('/pagina/{idPagina}/{acao}', [
-    function ($idPagina, $acao) {
-        return new Response(200, 'Página ' . $idPagina . ' - ' . $acao);
+/** rota Depoimentos */
+$router->get('/depoimentos', [
+    function ($request) {
+        return new Response(200, Pages\Testimony::getTestimonies($request));
+    }
+]);
+/** rota Depoimentos (INSERT) */
+$router->post('/depoimentos', [
+    function ($request) {
+        return new Response(200, Pages\Testimony::insertTestimony($request));
     }
 ]);
