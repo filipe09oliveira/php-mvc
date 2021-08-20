@@ -10,7 +10,7 @@
 <section id="form">
     <h3> Envie seu depoimento</h3>
 
-    <form method="POST" action="?page=1">
+    <form method="post" action="?page=1">
         <div class="form-group">
             <label>Nome</label>
             <input type="text" class="form-control" name="nome" required>
