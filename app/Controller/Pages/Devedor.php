@@ -5,14 +5,13 @@ namespace App\Controller\Pages;
 use App\Http\Request;
 use \App\Utils\View;
 use \App\Model\Entity\Devedor as EntityDevedor;
-use WilliamCosta\DatabaseManager\Pagination;
 
-class DevedorController extends Page
+class Devedor extends Page
 {
     /**
      * Método responsável por obter a renderização dos intens de devedores para página
      *
-     * @param Request $request 
+     * @param Request $request
      * @return string
      */
     private static function actionGetAllDevedores($request)
@@ -25,7 +24,7 @@ class DevedorController extends Page
 
         /** Renderiza o item */
         while ($devedor = $results->fetchObject(EntityDevedor::class)) {
-            $content .= View::render('pages/devedor/index', [
+            $content .= View::render('pages/devedor/item-table', [
                 'nome' => $devedor->nome,
                 'identificacao' => $devedor->identificacao,
                 'data_nascimento' => date('d/m/Y', strtotime($devedor->data_nascimento)),
@@ -42,14 +41,13 @@ class DevedorController extends Page
     /**
      * Método responsável por retornar o conteúdo (view) da view de devedores
      *
-     * @param Request $request 
+     * @param Request $request
      * @return string
      */
     public static function actionIndex($request)
     {
-
         /** View de devedores */
-        $content = View::render('pages/devedors', [
+        $content = View::render('pages/devedor/index', [
             'itens' => self::actionGetAllDevedores($request)
         ]);
 
@@ -75,5 +73,6 @@ class DevedorController extends Page
 
         /** Retorna a página de listagem de devedores */
         return self::actionIndex($request);
+
     }
 }

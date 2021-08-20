@@ -62,7 +62,7 @@ class Testimony
      * @param string $order
      * @param string $limit
      * @param string $fields
-     * @return PDOStatement
+     * @return \PDOStatement
      */
     public static function getTestimonies($where = null, $order = null, $limit = null, $fields = '*')
     {

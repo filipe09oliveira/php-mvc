@@ -23,6 +23,6 @@ class Home extends Page
         ]);
 
         /** Retorna a view da página */
-        return parent::getPage('HOME > WDEV', $content);
+        return parent::getPage('PHP MVC', $content);
     }
 }

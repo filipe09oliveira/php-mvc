@@ -25,7 +25,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{URL}}/devedor">Devedores</a>
+                    <a class="nav-link" href="{{URL}}/devedores">Devedores</a>
                 </li>
             </ul>
             <form class="d-flex">

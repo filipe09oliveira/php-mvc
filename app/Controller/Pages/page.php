@@ -15,7 +15,7 @@ class Page
      */
     private static function getHeader()
     {
-        return View::render('pages/header');
+        return View::render('pages/layout/header');
     }
 
     /**
@@ -25,7 +25,7 @@ class Page
      */
     private static function getFooter()
     {
-        return View::render('pages/footer');
+        return View::render('pages/layout/footer');
     }
 
     /**
@@ -35,7 +35,7 @@ class Page
      */
     public static function getPage($title, $content)
     {
-        return View::render('pages/page', [
+        return View::render('pages/layout/index', [
             'title' => $title,
             'header' => self::getHeader(),
             'content' => $content,

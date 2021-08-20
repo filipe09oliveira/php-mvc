@@ -25,6 +25,6 @@ class About extends Page
         ]);
 
         /** Retorna a view da página */
-        return parent::getPage('SOBRE > WDEV', $content);
+        return parent::getPage('SOBRE > PHP MVC', $content);
     }
 }

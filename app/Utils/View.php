@@ -26,7 +26,7 @@ class View
      */
     private static function getContentView($view)
     {
-        $file = __DIR__ . '/../../resources/view/' . $view . '.html';
+        $file = __DIR__ . '/../../resources/view/' . $view . '.php';
 
         return file_exists($file) ? file_get_contents($file) : '';
     }

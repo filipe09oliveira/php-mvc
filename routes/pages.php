@@ -25,9 +25,21 @@ $router->get('/depoimentos', [
         return new Response(200, Pages\Testimony::getTestimonies($request));
     }
 ]);
-/** rota Depoimentos (INSERT) */
 $router->post('/depoimentos', [
     function ($request) {
         return new Response(200, Pages\Testimony::insertTestimony($request));
+    }
+]);
+
+
+/** rota Depoimentos */
+$router->get('/devedores', [
+    function ($request) {
+        return new Response(200, Pages\Devedor::actionIndex($request));
+    }
+]);
+$router->post('/devedor', [
+    function ($request) {
+        return new Response(200, Pages\Devedor::actionCreate($request));
     }
 ]);
