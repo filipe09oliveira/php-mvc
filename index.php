@@ -11,6 +11,9 @@ $router = new Router(URL);
 /** Inclue as rotas de páginas */
 include __DIR__ . '/routes/pages.php';
 
+/** Inclue as rotas do painel */
+include __DIR__ . '/routes/admin.php';
+
 include __DIR__ . '/functions.php';
 
 /** Impre o response da rota */
