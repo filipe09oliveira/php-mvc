@@ -1,0 +1,6 @@
+<?php
+?>
+
+<li class="nav-item">
+    <a class="nav-link active {{current}}" href="{{link}}">{{label}}</a>
+</li>

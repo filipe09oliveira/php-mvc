@@ -28,6 +28,45 @@ class Page
         return View::render('pages/layout/footer');
     }
 
+    public static function getPagination($request, $obPagination)
+    {
+        /** Páginas */
+        $pages = $obPagination->getPages();
+
+        /** Verifica a quantidade de páginas */
+        if (count($pages) <= 1) return '';
+
+        /** Link */
+        $link = '';
+
+        /** URL atual (sem GETS) */
+        $url = $request->getRouter()->getCurrentUrl();
+
+        /** GET */
+        $queryParams = $request->getQueryParams();
+
+        /** Renderiza os links */
+        foreach ($pages as $page) {
+            /** Altera a página */
+            $queryParam['page'] = $page['page'];
+
+            /** LINK */
+            $link = $url.'?'.http_build_query($queryParam);
+
+            /** VIEW */
+            $links .= View::render('pages/pagination/link', [
+                'page' => $page['page'],
+                'link' => $link,
+                'active' => $page['current'] ? 'active' : ''
+            ]);
+        }
+
+        /** Renderiza box de paginação */
+        return View::render('pages/pagination/box', [
+            'links' => $links
+        ]);
+    }
+
     /**
      * Método responsável por retornar o conteúdo (view) da nossa pagina generica
      *

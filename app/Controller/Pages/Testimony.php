@@ -14,7 +14,7 @@ class Testimony extends Page
      * @param Request $request 
      * @return string
      */
-    private static function getTestimonyItems($request)
+    private static function getTestimonyItems($request, &$obPagination)
     {
         /** Depoimentos */
         $itens = '';
@@ -56,11 +56,12 @@ class Testimony extends Page
 
         /** View de depoimentos */
         $content = View::render('pages/testimonies', [
-            'itens' => self::getTestimonyItems($request)
+            'itens' => self::getTestimonyItems($request, $obPagination),
+            'pagination' => parent::getPagination($request, $obPagination)
         ]);
 
         /** Retorna a view da página */
-        return parent::getPage('HOME > WDEV', $content);
+        return parent::getPage('Depoimentos > WDEV', $content);
     }
 
     /**
